@@ -24,7 +24,6 @@ const CartScreen = () => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  // console.log(cartItems);
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId, qty));
@@ -32,8 +31,8 @@ const CartScreen = () => {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    console.log(id);
     dispatch(removeFromCart(id));
+    navigate("/cart"); //! Made for refreshing issues
   };
   const checkoutHandler = (id) => {
     navigate(`/login?redirect=shipping`);
