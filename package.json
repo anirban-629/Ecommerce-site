@@ -21,6 +21,7 @@
   "bugs": {
     "url": "https://github.com/anirban-629/Ecom/issues"
   },
+  
   "homepage": "https://github.com/anirban-629/Ecom#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",

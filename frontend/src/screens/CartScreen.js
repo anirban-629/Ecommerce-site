@@ -34,8 +34,25 @@ const CartScreen = () => {
     dispatch(removeFromCart(id));
     navigate("/cart"); //! Made for refreshing issues
   };
-  const checkoutHandler = (id) => {
-    navigate(`/login?redirect=shipping`);
+
+  //! Getting if any user is logged in or not
+  const userLoggedIn = () => {
+    //! Made for path issues
+    const storedUserInfo = localStorage.getItem("userInfo");
+    if (storedUserInfo) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const checkoutHandler = () => {
+    if (userLoggedIn()) {
+      navigate("/shipping");
+    } else {
+      navigate("/login");
+    }
+    // navigate("/login?redirect=shipping");
   };
 
   return (
