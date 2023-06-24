@@ -69,13 +69,21 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
       update_time: req.body.update_time,
       email_address: req.body.payer.email_address,
     };
-    const updateOrder = await Order.save();
-    res.json(updateOrder);
-    res.json(order);
+    console.log(order);
+    const updatedOrder = await order.save();
+    res.json(updatedOrder);
   } else {
     res.status(404);
     throw new Error("Order not found");
   }
 });
 
-export { addOrderItems, getOrderById, updateOrderToPaid };
+// @desc    Get Logged in user's orders
+// @route   GET /api/orders/myorders
+// @access  Private
+const getMyOrders = asyncHandler(async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+  res.json(orders);
+});
+
+export { addOrderItems, getOrderById, updateOrderToPaid, getMyOrders };
