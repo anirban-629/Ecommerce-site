@@ -69,7 +69,6 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
       update_time: req.body.update_time,
       email_address: req.body.payer.email_address,
     };
-    console.log(order);
     const updatedOrder = await order.save();
     res.json(updatedOrder);
   } else {
