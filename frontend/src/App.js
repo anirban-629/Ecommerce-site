@@ -7,6 +7,7 @@ import {
   CartScreen,
   HomeScreen,
   LoginScreen,
+  OrderListScreen,
   OrderScreen,
   PaymentScreen,
   PlaceOrderScreen,
@@ -49,8 +50,25 @@ const App = () => {
                 exact
               />
               <Route
+                path="/admin/productlist/:pageNumber"
+                Component={ProductListScreen}
+                exact
+              />
+              <Route
                 path="/admin/product/:id/edit"
                 Component={ProductEditScreen}
+                exact
+              />
+              <Route
+                path="/admin/orderlist"
+                Component={OrderListScreen}
+                exact
+              />
+              <Route path="/search/:keyword" Component={HomeScreen} exact />
+              <Route path="/page/:pageNumber" Component={HomeScreen} exact />
+              <Route
+                path="/search/:keyword/page/:pageNumber"
+                Component={HomeScreen}
                 exact
               />
               <Route path="/" Component={HomeScreen} exact />

@@ -3,6 +3,7 @@ import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../actions/userActions";
+import SearchBox from "./SearchBox";
 const Header = () => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
@@ -18,8 +19,9 @@ const Header = () => {
             <LinkContainer to="/">
               <Navbar.Brand>Electro</Navbar.Brand>
             </LinkContainer>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <SearchBox />
               <Nav
                 className="ml-auto my-2 my-lg-0"
                 style={{ maxHeight: "100px" }}

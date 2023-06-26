@@ -8,12 +8,17 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
+import morgan from "morgan";
 
 const app = express();
 dotenv.config();
 connectDB();
 
 app.use(express.json());
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
+
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
@@ -31,7 +36,7 @@ app.get("/", (req, res) => {
 });
 
 const __dirname = path.resolve();
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+app.use(express.static(path.join(__dirname, "frontend/public")));
 
 const PORT = process.env.PORT || 5000;
 app.listen(

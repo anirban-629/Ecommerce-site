@@ -21,6 +21,8 @@ const ProductEditScreen = () => {
   const [description, setDescription] = useState("");
   const [uploading, setUploading] = useState(false);
 
+  console.log(countInStock);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -47,7 +49,7 @@ const ProductEditScreen = () => {
         setImage(product.image);
         setBrand(product.brand);
         setCategory(product.category);
-        setCountInStock(product.countInSock);
+        setCountInStock(product.countInStock);
         setDescription(product.description);
       }
     }
@@ -58,13 +60,16 @@ const ProductEditScreen = () => {
     const formData = new FormData();
     formData.append("image", file);
     setUploading(true);
+
     try {
       const config = {
-        header: {
-          "Content-Type": "Multipart/form-data",
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
       };
-      const { data } = await axios.post("api/upload", formData, config);
+
+      const { data } = await axios.post("/api/upload", formData, config);
+
       setImage(data);
       setUploading(false);
     } catch (error) {
@@ -79,12 +84,12 @@ const ProductEditScreen = () => {
       updateProduct({
         _id: productId,
         name,
-        price: price || 0,
+        price: Number(price),
         image,
         brand,
         category,
         description,
-        countInStock: countInStock || 0,
+        countInStock: Number(countInStock),
       })
     );
   };
@@ -132,12 +137,12 @@ const ProductEditScreen = () => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-              <Form.File
-                id="image-file"
+              <Form.Label>Choose File</Form.Label>
+              <Form.Control
+                type="file"
                 label="Choose File"
-                custom
                 onChange={uploadFileHandler}
-              ></Form.File>
+              ></Form.Control>
               {uploading && <Loader />}
             </Form.Group>
 

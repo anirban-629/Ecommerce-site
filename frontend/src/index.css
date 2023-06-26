@@ -15,3 +15,32 @@ h2 {
 .rating span {
   margin: 0.1 rem;
 }
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+
+.carousel img {
+  height: 300px;
+  padding: 30px;
+  margin: 50px auto 0; /* Center the image horizontally */
+  border-radius: 50%;
+}
+
+.carousel a {
+  display: flex;
+  justify-content: center; /* Center the link horizontally */
+}

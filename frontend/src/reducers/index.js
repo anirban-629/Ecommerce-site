@@ -5,6 +5,8 @@ export {
   productDeleteReducer,
   productCreateReducer,
   productUpdateReducer,
+  productReviewCreateReducer,
+  productTopRatedReducer,
 } from "./productReducers";
 export {
   userLoginReducer,
@@ -20,4 +22,6 @@ export {
   orderDetailsReducer,
   orderPayReducer,
   orderListMyReducer,
+  orderListReducer,
+  orderDeliverReducer,
 } from "./orderReducer";
