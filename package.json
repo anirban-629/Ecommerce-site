@@ -5,11 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node backend/index",
+    "start": "node backend/index.js",
     "client": "npm start --prefix frontend",
-    "server": "nodemon backend/index",
+    "server": "nodemon backend/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "installmodules": "concurrently \"cd frontend && npm i\" \"cd backend && npm i\""
+    "installmodules": "concurrently \"cd frontend && npm i\" \"cd backend && npm i\"",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
