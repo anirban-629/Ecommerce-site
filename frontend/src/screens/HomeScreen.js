@@ -5,6 +5,7 @@ import { listProducts } from "../actions/productActions";
 import {
   Loader,
   Message,
+  Meta,
   Paginate,
   Product,
   ProductCarousel,
@@ -22,6 +23,7 @@ const HomeScreen = () => {
   }, [dispatch, keyword, pageNumber]);
   return (
     <>
+      <Meta />
       {!keyword && <ProductCarousel />}
       <h1>Latest Products</h1>
       {loading ? (
