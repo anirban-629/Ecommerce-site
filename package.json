@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node backend/index",
     "client": "npm start --prefix frontend",
-    "server": "nodemon backend/index.",
+    "server": "nodemon backend/index",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "installmodules": "concurrently \"cd frontend && npm i\" \"cd backend && npm i\""
   },

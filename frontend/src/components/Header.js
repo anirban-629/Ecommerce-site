@@ -17,7 +17,7 @@ const Header = () => {
         <Container>
           <Container fluid>
             <LinkContainer to="/">
-              <Navbar.Brand>Electro</Navbar.Brand>
+              <Navbar.Brand>The Tech Corner</Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
