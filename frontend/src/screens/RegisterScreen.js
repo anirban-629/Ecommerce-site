@@ -16,7 +16,7 @@ const RegisterScreen = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const userRegister = useSelector((state) => state.userLogin);
+  const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
   const navigate = useNavigate();
   const redirect = location.search ? location.search.split("=")[1] : "/";
@@ -35,7 +35,6 @@ const RegisterScreen = () => {
       dispatch(register(name, email, password));
     }
   };
-
   return (
     <FormContainer>
       <h1>Sign Up</h1>

@@ -27,6 +27,12 @@ const Header = () => {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
+                <LinkContainer to="/about">
+                  <Nav.Link>About Us</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/contact">
+                  <Nav.Link>Contact Us</Nav.Link>
+                </LinkContainer>
                 <LinkContainer to="/cart">
                   <Nav.Link>
                     <i className="mr-1 fas fa-shopping-cart"></i>

@@ -20,6 +20,8 @@ import {
   UserEditScreen,
   UserListScreen,
 } from "./screens";
+import About from "./screens/About";
+import Contact from "./screens/Contact";
 
 const App = () => {
   return (
@@ -29,6 +31,8 @@ const App = () => {
         <main className="py-4">
           <Container>
             <Routes>
+              <Route path="/about" Component={About} exact />
+              <Route path="/contact" Component={Contact} exact />
               <Route path="/order/:id" Component={OrderScreen} exact />
               <Route path="/shipping" Component={ShippingScreen} exact />
               <Route path="/payment" Component={PaymentScreen} exact />
